@@ -10,6 +10,7 @@ form.addEventListener('submit', (e) => {
     checkInputs();
 });
 
+
 function checkInputs() {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
@@ -28,17 +29,17 @@ function checkInputs() {
     } else {
         setSuccessFor(email);
     }
-    if(passwordValue ===''){
+    if (passwordValue === '') {
         setErrorFor(password, 'Password cannot be blank');
     } else {
-        setSuccessFor(password); 
+        setSuccessFor(password);
     }
-    if(passwordCheckValue ===''){
+    if (passwordCheckValue === '') {
         setErrorFor(passwordCheck, 'Password check cannot be blank');
-    }else if(passwordValue !== passwordCheckValue) {
+    } else if (passwordValue !== passwordCheckValue) {
         setErrorFor(passwordCheck, 'Passwords does not mutch');
-    }else {
-        setSuccessFor(passwordCheck); 
+    } else {
+        setSuccessFor(passwordCheck);
     }
 }
 
@@ -53,10 +54,9 @@ function setErrorFor(input, message) {
 function setSuccessFor(input, message) {
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
+
 }
 
 function isEmail(email) {
-	return (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email);
+    return (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email);
 }
-setCookie('user', 'John', {secure: true, 'max-age': 3600});
-document.cookie = "user=John; secure";
